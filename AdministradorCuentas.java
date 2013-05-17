@@ -473,5 +473,11 @@ public class AdministradorCuentas {
    		}
    	}
     
+    	
+    	public static void main(String args[])
+   	{
+   		AdministradorCuentas adm = new AdministradorCuentas();
+   		adm.init();   		
+   	}
     
 }
