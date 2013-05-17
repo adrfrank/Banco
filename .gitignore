@@ -153,6 +153,12 @@ pip-log.txt
 .coverage
 .tox
 
+#############
+##   Java
+#############
+
+*.class
+
 #Translations
 *.mo
 
