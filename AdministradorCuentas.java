@@ -12,11 +12,8 @@ public class AdministradorCuentas {
      CuentaDeCheques ch[];
      CuentaDeInversion inv[];
      
-     //Frames
-     Frame mainFrame;
-     Frame altasFrame;
-     Frame bajasFrame;
-     Frame consultasFrame;
+    
+     
      
     //Constructor
     public AdministradorCuentas() {
@@ -24,12 +21,11 @@ public class AdministradorCuentas {
     	ch = new CuentaDeCheques[5];
     	inv = new CuentaDeInversion[5];
     	
-    	//Inicializar frames
-    	mainFrame =  new Frame("Banco - Inicio");
+    	
     }
     
     public void init(){
-    	mainFrame.setVisible(true);
+    
     	int op=-1;
    		do{
    			showMainMenu();
@@ -483,10 +479,6 @@ public class AdministradorCuentas {
    		}
    	}    
     	
-    public static void main(String args[])
-   	{
-   		AdministradorCuentas adm = new AdministradorCuentas();
-   		adm.init();   		
-   	}
+   
     
 }
