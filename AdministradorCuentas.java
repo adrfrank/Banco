@@ -5,21 +5,31 @@
  * @author Adrián Francisco González g.
  * @version 1.00 2013/4/24
  */
- 
+ import java.awt.*;
 
 public class AdministradorCuentas {
      MyReader l;
      CuentaDeCheques ch[];
      CuentaDeInversion inv[];
      
+     //Frames
+     Frame mainFrame;
+     Frame altasFrame;
+     Frame bajasFrame;
+     Frame consultasFrame;
+     
     //Constructor
     public AdministradorCuentas() {
     	l= new MyReader();
     	ch = new CuentaDeCheques[5];
     	inv = new CuentaDeInversion[5];
+    	
+    	//Inicializar frames
+    	mainFrame =  new Frame("Banco - Inicio");
     }
     
     public void init(){
+    	mainFrame.setVisible(true);
     	int op=-1;
    		do{
    			showMainMenu();
@@ -471,10 +481,9 @@ public class AdministradorCuentas {
    			default://Salir (No hacer nada)   				
    				break;
    		}
-   	}
-    
+   	}    
     	
-    	public static void main(String args[])
+    public static void main(String args[])
    	{
    		AdministradorCuentas adm = new AdministradorCuentas();
    		adm.init();   		
