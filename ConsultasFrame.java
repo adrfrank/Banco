@@ -28,7 +28,7 @@ public class ConsultasFrame extends Frame implements WindowListener
 	{
 		controls= new Panel();
 		cbg= new CheckboxGroup();
-		cbConIndividual=new Checkbox("Individual",cbg,false);
+		cbConIndividual=new Checkbox("Individual",cbg,true);
 		cbConCheques=new Checkbox("Cuentas de cheques",cbg,false);
 		cbConInversion=new Checkbox("Cuentas de Inversion",cbg,false);
 		
@@ -46,7 +46,7 @@ public class ConsultasFrame extends Frame implements WindowListener
 		txtPlazo=new TextField();
 		txtNumCheques=new TextField();
 		
-		controls.setLayout(new GridLayout(7,2));
+		controls.setLayout(new GridLayout(8,2));
 		controls.add(cbConInversion);
 		controls.add(cbConCheques);
 		controls.add(lblNumCuenta);
@@ -54,11 +54,12 @@ public class ConsultasFrame extends Frame implements WindowListener
 		controls.add(lblTipo);
 		controls.add(txtTipo);
 		controls.add(lblNombrePropi);
-		//controls.add(txtNomPropietario);
-		//controls.add(lblPlazo);
-		//controls.add(txtPlazo);
-		//controls.add(lblNumCheques);
-		//controls.add(txtNumCheques);
+		controls.add(txtNomPropietario);
+		controls.add(lblPlazo);
+		controls.add(txtPlazo);
+		controls.add(lblNumCheques);
+		controls.add(txtNumCheques);
+		this.add(controls,BorderLayout.CENTER);
 		//controls.add(lbl);
 		//controls.add(txt);		
 	}
