@@ -68,7 +68,7 @@ public class AltasFrame extends Frame implements WindowListener {
     	
     }
     
-    //método que se ejecuta al momento de darse un evento
+    //metodo que se ejecuta al momento de darse un evento
     public void windowClosing(WindowEvent we){
     	this.setVisible(false);
     }

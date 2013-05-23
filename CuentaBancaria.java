@@ -19,7 +19,7 @@ public class CuentaBancaria {
     	this.nombrepropietario = nombrepropietario;
     }
     
-    //Familia de métodos mostrar
+    //Familia de metodos mostrar
     public void mostrarNumCuenta(){
     	System.out.println("Numero de cuenta = "+numcuenta);
     }
@@ -45,7 +45,7 @@ public class CuentaBancaria {
    		this.nombrepropietario = nombrepropietario;
    	}
    	
-   	//familia de métodos regresar
+   	//familia de metodos regresar
    	public int regresarNumCuenta(){
    		return numcuenta;
    	}
@@ -63,10 +63,10 @@ public class CuentaBancaria {
    		if(cantidad>0)
    		{
    			saldoactual += cantidad;
-   			System.out.println("El deposito se realizó satisfactoriamente");
+   			System.out.println("El deposito se realizo satisfactoriamente");
    			this.mostrarSaldoActual();
    		}else
-   			System.out.println("Cantidad no válida");
+   			System.out.println("Cantidad no valida");
    	}
    	
    	public boolean retirar(double cantidad){

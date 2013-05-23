@@ -2,7 +2,7 @@
  * @(#)CuentaDeCheques.java
  *
  *
- * @author Adrian Francisco González Gutierrez
+ * @author Adrian Francisco Gonzalez Gutierrez
  * @version 1.00 2013/4/23
  */
 
