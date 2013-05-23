@@ -4,14 +4,15 @@ import java.awt.event.*;
 public class ConsultasFrame extends Frame implements WindowListener
 {
 	AdministradorCuentas admCuentas;
-	Panel controls;
-	
+	Panel controls;	
 	Label lblNumCuenta, lblSactual, lblTipo, lblNombrePropi, lblPlazo, lblNumCheques;
 	
 	TextField txtNumCuenta, txtSaldoActual, txtTipo, txtNomPropietario, txtPlazo, txtNumCheques;
 	
 	CheckboxGroup cbg;
 	Checkbox cbConIndividual, cbConCheques, cbConInversion;
+	
+	Button btnConsultar;
 	
 	public ConsultasFrame(AdministradorCuentas c)
 	{
@@ -39,12 +40,12 @@ public class ConsultasFrame extends Frame implements WindowListener
 		lblPlazo=new Label("Plazo");
 		lblNumCheques=new Label("Numero de cheques:");
 		
-		txtNumCuenta=new TextField();
-		txtSaldoActual=new TextField();
-		txtTipo=new TextField();
-		txtNomPropietario=new TextField();
-		txtPlazo=new TextField();
-		txtNumCheques=new TextField();
+		txtNumCuenta=new TextField("Ingrese numero de cuenta a consultar", 20);
+		txtSaldoActual=new TextField("", 20);
+		txtTipo=new TextField("", 20);
+		txtNomPropietario=new TextField("", 20);
+		txtPlazo=new TextField("", 20);
+		txtNumCheques=new TextField("", 20);
 		
 		controls.setLayout(new GridLayout(8,2));
 		controls.add(cbConInversion);
@@ -59,10 +60,19 @@ public class ConsultasFrame extends Frame implements WindowListener
 		controls.add(txtPlazo);
 		controls.add(lblNumCheques);
 		controls.add(txtNumCheques);
+		//buttons=new Panel();
+		btnConsultar=new Button("Consultar");
+		//btnConsultar.addActionListener(this);
+		controls.add(btnConsultar);
+		//this.add(buttons,BorderLayout.CENTER);
 		this.add(controls,BorderLayout.CENTER);
-		//controls.add(lbl);
-		//controls.add(txt);		
+				
 	}
+	
+	/*public void initButtons()
+	{
+		
+	}*/
 	
 	public void windowClosing(WindowEvent we){
     	this.setVisible(false);

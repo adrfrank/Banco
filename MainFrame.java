@@ -12,7 +12,7 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
 	AdministradorCuentas admCuentas;
 	Panel pnlButtons;
 	Panel pnlCenter;
-	Panel pnlSouth;
+	
 	//Buttons
 	Button btnAltas, btnBajas, btnConsultas, btnModificaciones, btnBuscar, btnSalir;
 	TextField txtBuscar;
@@ -22,12 +22,14 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
 	///Forms
 	AltasFrame frmAltas;
 	ConsultasFrame frmConsultas;
+	BajasFrame frmBajas;
 	
     public MainFrame() {
     	init();
     	admCuentas = new AdministradorCuentas();
     	frmAltas = new AltasFrame(admCuentas);
 		frmConsultas = new ConsultasFrame(admCuentas);
+		frmBajas = new BajasFrame(admCuentas);
     	this.setTitle("Banco - Inicio");
     }
     
@@ -81,6 +83,10 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
 			case "Consultas":
 				showConsultasForm();
 				break;
+				
+			case "Bajas":
+				showBajasForm();
+				break;	
 	
     	}
     	
@@ -95,6 +101,11 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
 		frmConsultas.setVisible(true);
 	}
     
+	void showBajasForm()
+	{
+		frmBajas.setVisible(true);
+	}
+	
     //metodo que se ejecuta al momento de darse un evento
     public void windowClosing(WindowEvent we){
     	System.exit(0);
