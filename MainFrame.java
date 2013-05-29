@@ -13,22 +13,25 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
 	Panel pnlButtons;
 	Panel pnlCenter;
 	//Buttons
-	Button btnAltas, btnBajas, btnConsultas, btnModificaciones, btnBuscar;
+	Button btnAltas, btnBajas, btnConsultas,  btnBuscar;
 	TextField txtBuscar;
 	//Labels
 	Label lblBuscar;
 	
 	///Forms
 	AltasFrame frmAltas;
+	BajasFrame frmBajas;
 	
     public MainFrame() {
     	init();
-    	admCuentas = new AdministradorCuentas();
-    	frmAltas = new AltasFrame(admCuentas);
-    	this.setTitle("Banco - Inicio");
+    	
     }
     
     public void init(){
+    	admCuentas = new AdministradorCuentas();
+    	frmAltas = new AltasFrame(admCuentas);
+    	frmBajas = new BajasFrame(admCuentas);
+    	this.setTitle("Banco - Inicio");
     	this.setSize(400,300);
     	this.setResizable(false);
     	this.addWindowListener(this);
@@ -42,6 +45,7 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	lblBuscar =  new Label("Numero de cuentea: ");
     	txtBuscar =  new TextField();
     	btnBuscar = new Button("Buscar");
+    	btnBuscar.addActionListener(this);
     	pnlCenter.add(lblBuscar);
     	pnlCenter.add(txtBuscar);
     	pnlCenter.add(btnBuscar);
@@ -53,14 +57,12 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	btnAltas =  new Button("Altas");
     	btnBajas =  new Button("Bajas");
     	btnConsultas = new Button("Consultas");
-    	btnModificaciones = new Button("Modificaciones");
     	btnAltas.addActionListener(this);
     	btnBajas.addActionListener(this);
     	btnConsultas.addActionListener(this);
     	pnlButtons.add(btnAltas);
     	pnlButtons.add(btnBajas);
     	pnlButtons.add(btnConsultas);
-    	pnlButtons.add(btnModificaciones);
     	this.add(pnlButtons,BorderLayout.NORTH);
     }
     
@@ -72,6 +74,13 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     		case "Altas":
     			showAltasForm();
     			break;
+    		case "Bajas":
+    			showBajasForm();
+    			break;
+    		case "Consultas": 
+    			break;
+    		case "Buscar":
+    			break;
     	}
     	
     }
@@ -79,6 +88,11 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     void showAltasForm(){
     	frmAltas.setVisible(true);
     }
+    
+    void showBajasForm()
+    {
+    	frmBajas.setVisible(true);
+   	}
     
     
     //método que se ejecuta al momento de darse un evento
