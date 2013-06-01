@@ -12,19 +12,35 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
 	AdministradorCuentas admCuentas;
 	Panel pnlButtons;
 	Panel pnlCenter;
+	Panel pnlSouth;
 	//Buttons
+<<<<<<< HEAD
 	Button btnAltas, btnBajas, btnConsultas,  btnBuscar;
+=======
+	Button btnAltas, btnBajas, btnConsultas, btnModificaciones, btnBuscar, btnSalir;
+>>>>>>> cf3c5647756604d1830557b1a1f4c91e13873b65
 	TextField txtBuscar;
 	//Labels
 	Label lblBuscar;
 	
 	///Forms
 	AltasFrame frmAltas;
+<<<<<<< HEAD
 	BajasFrame frmBajas;
 	
     public MainFrame() {
     	init();
     	
+=======
+	ConsultasFrame frmConsultas;
+	
+    public MainFrame() {
+    	init();
+    	admCuentas = new AdministradorCuentas();
+    	frmAltas = new AltasFrame(admCuentas);
+		frmConsultas = new ConsultasFrame(admCuentas);
+    	this.setTitle("Banco - Inicio");
+>>>>>>> cf3c5647756604d1830557b1a1f4c91e13873b65
     }
     
     public void init(){
@@ -37,12 +53,14 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	this.addWindowListener(this);
     	initButtons();
     	initCenter();
+		//initSouth();
     }
     
+		
     public void initCenter(){
     	pnlCenter = new Panel();
-    	pnlCenter.setLayout(new FlowLayout(FlowLayout.CENTER,30,50));
-    	lblBuscar =  new Label("Numero de cuentea: ");
+    	pnlCenter.setLayout(new FlowLayout(FlowLayout.CENTER,20,40));
+    	lblBuscar =  new Label("Numero de cuenta: ");
     	txtBuscar =  new TextField();
     	btnBuscar = new Button("Buscar");
     	btnBuscar.addActionListener(this);
@@ -51,7 +69,7 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	pnlCenter.add(btnBuscar);
     	this.add(pnlCenter,BorderLayout.CENTER);
     }
-    
+		    
     public void initButtons(){
     	pnlButtons = new Panel();
     	btnAltas =  new Button("Altas");
@@ -66,14 +84,15 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	this.add(pnlButtons,BorderLayout.NORTH);
     }
     
-    //método que se ejecuta al momento de darse un evento
+    //metodo que se ejecuta al momento de darse un evento
     public void actionPerformed(ActionEvent ae){
-    	//Aqui se ejecutan las opciens de los botones del menú
-    	String op =  ((Button)ae.getSource()).getLabel();
+    	//Aqui se ejecutan las opciens de los botones del menu
+    	String op =  ((Button)ae.getSource()).getLabel();//regresar a String
     	switch(op){
     		case "Altas":
     			showAltasForm();
     			break;
+<<<<<<< HEAD
     		case "Bajas":
     			showBajasForm();
     			break;
@@ -81,6 +100,13 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     			break;
     		case "Buscar":
     			break;
+=======
+			
+			case "Consultas":
+				showConsultasForm();
+				break;
+	
+>>>>>>> cf3c5647756604d1830557b1a1f4c91e13873b65
     	}
     	
     }
@@ -89,13 +115,20 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	frmAltas.setVisible(true);
     }
     
+<<<<<<< HEAD
     void showBajasForm()
     {
     	frmBajas.setVisible(true);
    	}
     
+=======
+	void showConsultasForm()
+	{
+		frmConsultas.setVisible(true);
+	}
+>>>>>>> cf3c5647756604d1830557b1a1f4c91e13873b65
     
-    //método que se ejecuta al momento de darse un evento
+    //metodo que se ejecuta al momento de darse un evento
     public void windowClosing(WindowEvent we){
     	System.exit(0);
     }

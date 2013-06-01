@@ -2,7 +2,7 @@
  * @(#)AdministradorCuentas.java
  *
  *
- * @author Adrián Francisco González g.
+ * @author Adrian Francisco Gonzalez g.
  * @version 1.00 2013/4/24
  */
  import java.awt.*;
@@ -68,7 +68,7 @@ public class AdministradorCuentas {
    		show("6. Retirar");
    		show("7. Salir");
    		show();
-   		showInline("Elige tu opción: ");
+   		showInline("Elige tu opcion: ");
    		
    	}
    	
@@ -76,7 +76,7 @@ public class AdministradorCuentas {
    		show();
    		show("*MENU ALTAS*")	;
    		show("1. Alta de cuenta de cheques");
-   		show("2. Alta de cuenta de inversión");
+   		show("2. Alta de cuenta de inversion");
    		show("3. Regresar al menu principal");
    		show();
    		showInline("Elige tu opcion: ");
@@ -86,9 +86,9 @@ public class AdministradorCuentas {
 			if(op==1||op==2)
 				altaCuenta(op);
 			else
-				throw new Exception("Opción no válida");
+				throw new Exception("Opcion no valida");
 		}catch(Exception ex){
-			show("Opcion no válida!");
+			show("Opcion no valida!");
 		}
 		
    	}
@@ -101,7 +101,7 @@ public class AdministradorCuentas {
    		try{
 			cuenta=l.getInt();
 		}catch(Exception ex){
-			show("Opcion no válida!");
+			show("Opcion no valida!");
 		}
 		bajaCuenta(cuenta);		
    	}
@@ -115,13 +115,13 @@ public class AdministradorCuentas {
 	   		show("*MENU CONSULTAS*");
 	   		show("1. Consulta individual");
 	   		show("2. Consultar cuentas de cheques");
-	   		show("3. Consultar cuentas de inversión");
-	   		show("4. Regresar al menú principal");
-	   		showInline("Elige tu opción: ");
+	   		show("3. Consultar cuentas de inversion");
+	   		show("4. Regresar al menu principal");
+	   		showInline("Elige tu opcion: ");
 	   		try{
 				op=l.getInt();				
 			}catch(Exception ex){
-				show("Opción no válida!");
+				show("Opcion no valida!");
 			}
 			switch(op){
 				case 1:
@@ -187,7 +187,7 @@ public class AdministradorCuentas {
 	   				show("La cuenta no existe!");
 	   			}
    			}catch(Exception ex){
-   				show("Entrada no válida");
+   				show("Entrada no valida");
    			}
    			
    			
@@ -204,7 +204,7 @@ public class AdministradorCuentas {
 			cuenta = l.getInt();
 			cambiarCuenta(cuenta);  
 		}catch(Exception ex){
-			show("Número de cuenta no válido");
+			show("Numero de cuenta no valido");
 		}
    	}   	
    	
@@ -235,14 +235,14 @@ public class AdministradorCuentas {
 	   						break;
 	   				}
    				}catch(Exception ex){
-   					show("Opción Inválida!!");
+   					show("Opcion Invalida!!");
    				}   				
    				
    			}else{
    				show("*CUENTA DE CHEQUES*");
    				show("1. Nombre del propietario");
    				show("2. Numero de cheques");
-   				show("3. Regresar al menú anterior");
+   				show("3. Regresar al menu anterior");
    				try{
    					op=l.getInt();
    					switch(op){
@@ -253,12 +253,12 @@ public class AdministradorCuentas {
    							break;
    						case 2:
    							show();
-   							show("Ingrese el nuevo número de cheques: ");
+   							show("Ingrese el nuevo numero de cheques: ");
    							((CuentaDeCheques)c).cambiarNumCheques(l.getInt());
    							break;
    					}   					
    				}catch(Exception ex){
-   					show("Opción Inválida!!");
+   					show("Opcion Invalida!!");
    				}
    				
    			}
@@ -282,7 +282,7 @@ public class AdministradorCuentas {
 	   			show("La cuenta no existe!");
 	   		}
 	   	}catch(Exception ex){
-	   		show("Número no válido");
+	   		show("Numero no valido");
 	   	}
    		
    		
@@ -306,7 +306,7 @@ public class AdministradorCuentas {
 	   			double cant = l.getDouble();
 	   			if(cuenta.retirar(cant))
 	   			{
-	   				show("El retiro se realizó satisfactoriamente");
+	   				show("El retiro se realizo satisfactoriamente");
 	   				cuenta.mostrarSaldoActual();
 	   			}
 	   			else{
@@ -317,7 +317,7 @@ public class AdministradorCuentas {
 	   			show("La cuenta no existe!");
 	   		}
    		}catch(Exception ex){
-   			show("Número de cuenta no válido");
+   			show("Numero de cuenta no valido");
    		}
    		
    	}
@@ -348,7 +348,7 @@ public class AdministradorCuentas {
    				}
    			else
    				show("Ya no hay espacio para mas cuentas de cheques!");
-   		}else {//Insertar cuenta de inversión
+   		}else {//Insertar cuenta de inversion
    			if(cuentasDeInversionActuales() < inv.length)
    				for(int i =0; i < inv.length; i++){
    				
@@ -358,7 +358,7 @@ public class AdministradorCuentas {
    					}
    				}
    			else
-   				show("Ya no hay espacio para mas cuentas de inversión!");
+   				show("Ya no hay espacio para mas cuentas de inversion!");
    		}
    	}
    	
@@ -416,7 +416,7 @@ public class AdministradorCuentas {
 	   				break;
 	   		}   			
    		}catch(Exception ex){
-   			show("Datos inválidos! ");
+   			show("Datos invalidos! ");
    		}
    		
    	}
