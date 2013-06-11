@@ -39,7 +39,7 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	this.addWindowListener(this);
     	initButtons();
     	initCenter();
-		//initSouth();
+		
     }
     
 		
