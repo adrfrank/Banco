@@ -7,26 +7,31 @@
  */
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
-public class MainFrame extends Frame implements  ActionListener, WindowListener {
+public class MainFrame extends JFrame implements  ActionListener, WindowListener {
 	AdministradorCuentas admCuentas;
 	Panel pnlButtons;
 	Panel pnlCenter;
 	
 	//Buttons
-	Button btnAltas, btnBajas, btnConsultas, btnModificaciones, btnBuscar, btnSalir;
+	JButton btnAltas, btnConsultas, btnModificaciones, btnBuscar, btnSalir;
 	TextField txtBuscar;
 	//Labels
 	Label lblBuscar;
 	
 	///Forms
 	AltasFrame frmAltas;
+<<<<<<< HEAD
 	ConsultasFrame frmConsultas;
 	BajasFrame frmBajas;
+=======
+	CuentaFrame frmCuentas;
+	ConsultasFrame frmConsultas;    
+>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
 	
     public MainFrame() {
     	init();
-    	admCuentas = new AdministradorCuentas();
     	frmAltas = new AltasFrame(admCuentas);
 		frmConsultas = new ConsultasFrame(admCuentas);
 		frmBajas = new BajasFrame(admCuentas);
@@ -34,11 +39,17 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     }
     
     public void init(){
+    	admCuentas = new AdministradorCuentas();
+    	this.setTitle("Banco - Inicio");
     	this.setSize(400,300);
     	this.setResizable(false);
     	this.addWindowListener(this);
     	initButtons();
     	initCenter();
+<<<<<<< HEAD
+=======
+		//initSouth();
+>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
 		
     }
     
@@ -48,7 +59,8 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	pnlCenter.setLayout(new FlowLayout(FlowLayout.CENTER,20,40));
     	lblBuscar =  new Label("Numero de cuenta: ");
     	txtBuscar =  new TextField();
-    	btnBuscar = new Button("Buscar");
+    	btnBuscar = new JButton("Buscar");
+    	btnBuscar.addActionListener(this);
     	pnlCenter.add(lblBuscar);
     	pnlCenter.add(txtBuscar);
     	pnlCenter.add(btnBuscar);
@@ -57,37 +69,39 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
 		    
     public void initButtons(){
     	pnlButtons = new Panel();
-    	btnAltas =  new Button("Altas");
-    	btnBajas =  new Button("Bajas");
-    	btnConsultas = new Button("Consultas");
-    	btnModificaciones = new Button("Modificaciones");
+    	btnAltas =  new JButton("Altas");
+
+    	btnConsultas = new JButton("Consultas");
     	btnAltas.addActionListener(this);
-    	btnBajas.addActionListener(this);
     	btnConsultas.addActionListener(this);
     	pnlButtons.add(btnAltas);
-    	pnlButtons.add(btnBajas);
     	pnlButtons.add(btnConsultas);
-    	pnlButtons.add(btnModificaciones);
     	this.add(pnlButtons,BorderLayout.NORTH);
+    	
     }
     
     //metodo que se ejecuta al momento de darse un evento
     public void actionPerformed(ActionEvent ae){
     	//Aqui se ejecutan las opciens de los botones del menu
-    	String op =  ((Button)ae.getSource()).getLabel();//regresar a String
+    	String op =  ((JButton)ae.getSource()).getLabel();//regresar a String
     	switch(op){
     		case "Altas":
     			showAltasForm();
     			break;
-			
+    		case "Buscar":
+    			buscarCuenta();
+    			break;
 			case "Consultas":
 				showConsultasForm();
 				break;
+<<<<<<< HEAD
 				
 			case "Bajas":
 				showBajasForm();
 				break;	
 	
+=======
+>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
     	}
     	
     }
@@ -96,10 +110,24 @@ public class MainFrame extends Frame implements  ActionListener, WindowListener 
     	frmAltas.setVisible(true);
     }
     
+	void buscarCuenta(){
+		int ncuenta =  Integer.parseInt(txtBuscar.getText())		;
+		CuentaBancaria c = admCuentas.existeCuenta(ncuenta);
+		if(c==null)
+		{
+			JOptionPane.showMessageDialog(null,"Error: No existe la cuenta")	;    			
+		}
+		else{
+			frmCuentas =  new CuentaFrame(c,admCuentas);
+		}
+	}
+    
+    
 	void showConsultasForm()
 	{
 		frmConsultas.setVisible(true);
 	}
+
     
 	void showBajasForm()
 	{

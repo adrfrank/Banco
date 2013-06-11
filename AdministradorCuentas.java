@@ -6,6 +6,7 @@
  * @version 1.00 2013/4/24
  */
  import java.awt.*;
+ import java.util.*;
 
 public class AdministradorCuentas {
      MyReader l;
@@ -24,7 +25,7 @@ public class AdministradorCuentas {
     	
     }
     
-    public void init(){
+    public void init() throws Exception{
     
     	int op=-1;
    		do{
@@ -93,7 +94,7 @@ public class AdministradorCuentas {
 		
    	}
    	
-   	public void showBajasMenu(){
+   	public void showBajasMenu()throws Exception{
    		int cuenta =0;
    		show();
    		show("*BAJAS*");
@@ -104,6 +105,26 @@ public class AdministradorCuentas {
 			show("Opcion no valida!");
 		}
 		bajaCuenta(cuenta);		
+   	}
+   	
+   	public CuentaDeCheques[] getCuentasCheques(){
+   		int n = cuentasDeChequesActuales();
+   		int cont=0;
+   		CuentaDeCheques[] c = new CuentaDeCheques[n];
+   		for(int i =0; i < ch.length;i++)
+   			if(ch[i] != null)
+   				c[cont++]=ch[i];
+   		return c;
+   	}
+   	
+   	public CuentaDeInversion[] getCuentasInversion(){
+   		int n = cuentasDeInversionActuales();
+   		int cont=0;
+   		CuentaDeInversion[] c = new CuentaDeInversion[n];
+   		for(int i =0; i < inv.length;i++)
+   			if(inv[i] != null)
+   				c[cont++]=inv[i];
+   		return c;
    	}
    	
    	
@@ -334,7 +355,7 @@ public class AdministradorCuentas {
    		return null;
    	}
    	
-   	public void agregarCuenta(CuentaBancaria c)
+   	public void agregarCuenta(CuentaBancaria c) throws Exception
    	{
    		if(c instanceof CuentaDeCheques){//Insertar cuenta de cheques
    			if(cuentasDeChequesActuales() < ch.length)
@@ -347,7 +368,7 @@ public class AdministradorCuentas {
    					}
    				}
    			else
-   				show("Ya no hay espacio para mas cuentas de cheques!");
+   				throw new Exception("Ya no hay espacio para mas cuentas de cheques!");
    		}else {//Insertar cuenta de inversion
    			if(cuentasDeInversionActuales() < inv.length)
    				for(int i =0; i < inv.length; i++){
@@ -358,7 +379,7 @@ public class AdministradorCuentas {
    					}
    				}
    			else
-   				show("Ya no hay espacio para mas cuentas de inversion!");
+   				throw new Exception("Ya no hay espacio para mas cuentas de inversion!");
    		}
    	}
    	
@@ -421,7 +442,7 @@ public class AdministradorCuentas {
    		
    	}
    	
-   	public void bajaCuenta(int n){
+   	public void bajaCuenta(int n) throws Exception{
    		boolean elim=false;
    		if(cuentasDeChequesActuales()==0&&cuentasDeInversionActuales()==0)
    		{
@@ -448,10 +469,10 @@ public class AdministradorCuentas {
 				return;
 			}
 		}
-   		show("No existe la cuenta");   		
+   		throw new Exception("No existe la cuenta");   		
    	}  	
    	   	
-   	public void selectOption(int op){
+   	public void selectOption(int op)throws Exception{
    		MyReader l= new MyReader();
    		int cuenta 		;
    		switch(op){
