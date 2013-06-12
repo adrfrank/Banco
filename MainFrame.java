@@ -22,13 +22,13 @@ public class MainFrame extends JFrame implements  ActionListener, WindowListener
 	
 	///Forms
 	AltasFrame frmAltas;
-<<<<<<< HEAD
-	ConsultasFrame frmConsultas;
+//<<<<<<< HEAD
+	//ConsultasFrame frmConsultas;
 	BajasFrame frmBajas;
-=======
+//=======
 	CuentaFrame frmCuentas;
 	ConsultasFrame frmConsultas;    
->>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
+//>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
 	
     public MainFrame() {
     	init();
@@ -46,10 +46,10 @@ public class MainFrame extends JFrame implements  ActionListener, WindowListener
     	this.addWindowListener(this);
     	initButtons();
     	initCenter();
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 		//initSouth();
->>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
+//>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
 		
     }
     
@@ -94,14 +94,14 @@ public class MainFrame extends JFrame implements  ActionListener, WindowListener
 			case "Consultas":
 				showConsultasForm();
 				break;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 				
 			case "Bajas":
 				showBajasForm();
 				break;	
 	
-=======
->>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
+//=======
+//>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
     	}
     	
     }

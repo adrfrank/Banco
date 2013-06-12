@@ -25,6 +25,10 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
 	
 	JPanel pnlCuenta;
 	
+	Retiros frmretiro; 
+	
+	Depositos frmdeposito;                                                                    
+	
     public CuentaFrame(CuentaBancaria c, AdministradorCuentas admCuentas) {
 		cuenta = c;
 		enEdicion = false;
@@ -36,6 +40,8 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
 		this.setVisible(true);
 		this.add(pnlCuenta,BorderLayout.CENTER);
 		cargarDatos();
+		frmretiro=new Retiros(this.admCuentas,cuenta);
+		frmdeposito=new Depositos(this.admCuentas,cuenta);
     }
     
     void initControles(){
@@ -109,7 +115,7 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
     		txtPlazo.setEnabled(false);
     		txtCheques.setEnabled(false);
     		btnEliminar.setLabel("Eliminar");
-    		JOptionPane.showMessageDialog(null,"La cuenta se guardó correctamente.");
+    		JOptionPane.showMessageDialog(null,"La cuenta se guardo correctamente.");
     		enEdicion = false;
   		} else{
   			txtNombrePropietario.setEnabled(true);
@@ -134,7 +140,7 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
   	}
     
     void eliminarCuenta(){
-    	int resp=JOptionPane.showConfirmDialog (null, "¿Esta seguro que desea eliminar la cuenta?");
+    	int resp=JOptionPane.showConfirmDialog (null, "Esta seguro que desea eliminar la cuenta?");
     	if(resp==JOptionPane.YES_OPTION){
     		try{
     			admCuentas.bajaCuenta(cuenta.regresarNumCuenta());
@@ -151,6 +157,10 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
     	}
     }
     
+	public void showretiros()
+	{
+		frmretiro.setVisible(true);
+	}
     
     public void BorrarCampos(){
     	//Borrar campos aqui.
@@ -171,8 +181,10 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
     			eliminarCuenta();
     			break;
     		case "Depositar":
+				frmdeposito.setVisible(true);
     			break;
     		case "Retirar":
+				showretiros();
     			break;
     		case "Cancelar": 
     			cancelar();

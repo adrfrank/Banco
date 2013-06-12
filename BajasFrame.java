@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-import java.awt.*;
+//<<<<<<< HEAD
+/*import java.awt.*;
 import java.awt.event.*;
 
 public class BajasFrame extends Frame implements WindowListener
@@ -40,7 +40,7 @@ public class BajasFrame extends Frame implements WindowListener
 	}
 	
 	public void windowClosing(WindowEvent we){
-=======
+//=======
 /**
  * @(#)BajasForm.java
  *
@@ -71,9 +71,9 @@ public class BajasFrame extends Frame implements WindowListener,ActionListener {
     		
    	}
     
-    //método que se ejecuta al momento de darse un evento
+    //metodo que se ejecuta al momento de darse un evento
     public void windowClosing(WindowEvent we){
->>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
+//>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
     	this.setVisible(false);
     }
     public void windowOpened(WindowEvent we){}
@@ -81,13 +81,11 @@ public class BajasFrame extends Frame implements WindowListener,ActionListener {
     public void windowDeiconified(WindowEvent we){}    
     public void windowClosed(WindowEvent we){}
     public void windowActivated(WindowEvent we){}    
-<<<<<<< HEAD
+//<<<<<<< HEAD
     public void windowDeactivated(WindowEvent we){}    
 	
 }//Fin de la clase
-=======
-    public void windowDeactivated(WindowEvent we){}
+//=======
+ //   public void windowDeactivated(WindowEvent we){}
     
-    
-}
->>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
+//>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d

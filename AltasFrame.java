@@ -105,8 +105,8 @@ public class AltasFrame extends JFrame implements WindowListener, ActionListener
 			}
 			admCuentas.agregarCuenta(c);
 			BorrarCampos();
-			System.out.println("La cuenta se agregó correctamente");
-			JOptionPane.showMessageDialog(null,"La cuenta se agregó correctamente")	;
+			System.out.println("La cuenta se agrego correctamente");
+			JOptionPane.showMessageDialog(null,"La cuenta se agrego correctamente")	;
 			
     		
 	    }

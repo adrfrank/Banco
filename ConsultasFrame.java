@@ -6,16 +6,16 @@ public class ConsultasFrame extends JFrame implements WindowListener, ItemListen
 {
 
 	AdministradorCuentas admCuentas;
-<<<<<<< HEAD
-	Panel controls;	
+//<<<<<<< HEAD
+	//Panel controls;	
 	Label lblNumCuenta, lblSactual, lblTipo, lblNombrePropi, lblPlazo, lblNumCheques;
 	
 	TextField txtNumCuenta, txtSaldoActual, txtTipo, txtNomPropietario, txtPlazo, txtNumCheques;
 	
-=======
+//=======
 	Panel controls,pnlTipo;
 	JTable 	tblcuentas;
->>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
+//>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
 	CheckboxGroup cbg;
 	Checkbox  cbConCheques, cbConInversion;
 	
@@ -39,7 +39,7 @@ public class ConsultasFrame extends JFrame implements WindowListener, ItemListen
 		cbg= new CheckboxGroup();
 		cbConCheques=new Checkbox("Cuentas de cheques",cbg,false);
 		cbConInversion=new Checkbox("Cuentas de Inversion",cbg,false);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		
 		lblNumCuenta= new Label("Numero de cuenta:");
 		lblSactual=new Label("Saldo actual: ");
@@ -68,14 +68,11 @@ public class ConsultasFrame extends JFrame implements WindowListener, ItemListen
 		controls.add(txtPlazo);
 		controls.add(lblNumCheques);
 		controls.add(txtNumCheques);
-		//buttons=new Panel();
 		btnConsultar=new Button("Consultar");
-		//btnConsultar.addActionListener(this);
 		controls.add(btnConsultar);
-		//this.add(buttons,BorderLayout.CENTER);
 		this.add(controls,BorderLayout.CENTER);
 				
-=======
+//=======
 		cbConCheques.addItemListener(this);
 		cbConInversion.addItemListener(this);
 		tblcuentas =  new JTable();	
@@ -98,19 +95,15 @@ public class ConsultasFrame extends JFrame implements WindowListener, ItemListen
 		tblcuentas.setShowGrid(false);        
 	}
 	
+		
 	public void itemStateChanged(ItemEvent ie){
 		if(((Checkbox) ie.getSource()).getLabel()=="Cuentas de cheques")
 			initTable(true);
 		else
 			initTable(false);
 		System.out.println(((Checkbox) ie.getSource()).getLabel()=="Cuentas de cheques");
->>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
+//>>>>>>> 9c50ad994a71f92c3d708df7a25351025444f91d
 	}
-	
-	/*public void initButtons()
-	{
-		
-	}*/
 	
 	public void windowClosing(WindowEvent we){
     	this.setVisible(false);
