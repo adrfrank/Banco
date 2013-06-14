@@ -2,8 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Retiros extends JFrame implements ActionListener, WindowListener, ItemListener
-{
+public class Retiros extends JFrame implements ActionListener, WindowListener, ItemListener{
 	AdministradorCuentas admCuentas;
 	CuentaBancaria cuenta;
 	JLabel  lbl_otrac;
@@ -25,26 +24,21 @@ public class Retiros extends JFrame implements ActionListener, WindowListener, I
 		ipnlizq();
 		ipnlder();
 		ipnlsur();
-		
 		this.add(pnl_izq,BorderLayout.NORTH);
 		this.add(pnl_dere,BorderLayout.CENTER);
 		this.add(pnl_sur,BorderLayout.SOUTH);
-		
 	}
 	
 	public void ipnlizq()
 	{
 		pnl_izq=new JPanel();
-		
 		cb_1=new Checkbox("$100",cbg_cantidades, false);
 		cb_2=new Checkbox("$200",cbg_cantidades, false);
 		cb_5=new Checkbox("$500",cbg_cantidades, false);
-		
 		pnl_izq.add(cb_1);
 		pnl_izq.add(cb_2);
 		pnl_izq.add(cb_5);
-		
-		}
+	}
 	
 	public void ipnlder()
 	{
@@ -53,7 +47,6 @@ public class Retiros extends JFrame implements ActionListener, WindowListener, I
 		cb_20=new Checkbox("$2000",cbg_cantidades2,false);
 		lbl_otrac=new JLabel("Otra cantidad");
 		txt_otracantidad=new JTextField("",10);
-	
 		pnl_dere.add(cb_10);
 		pnl_dere.add(cb_20);
 		pnl_dere.add(lbl_otrac);
@@ -63,36 +56,23 @@ public class Retiros extends JFrame implements ActionListener, WindowListener, I
 	public void ipnlsur()
 	{
 		pnl_sur=new JPanel();
-		
 		btn_retirar=new JButton("Retirar");
-		
 		btn_retirar.addActionListener(this);
-		
 		pnl_sur.add(btn_retirar);
 	}
 	
 	public void itemStateChanged(ItemEvent ie)
 	{
 		if(((Checkbox)ie.getSource()).getLabel() == "$100")
-		{
 			monto=100;
-		}
 		if(((Checkbox)ie.getSource()).getLabel() == "$200")
-		{
 			monto=200;
-		}
 		if(((Checkbox)ie.getSource()).getLabel() == "$500")
-		{
 			monto=500;
-		}
 		if(((Checkbox)ie.getSource()).getLabel() == "$1000")
-		{
 			monto=1000;
-		}
 		if(((Checkbox)ie.getSource()).getLabel() == "$2000")
-		{
 			monto=2000;
-		}
 	}
 	
 	public void actionPerformed(ActionEvent ae)
@@ -104,15 +84,12 @@ public class Retiros extends JFrame implements ActionListener, WindowListener, I
 		else {
 			((CuentaDeInversion)cuenta).retirar(monto);
 			JOptionPane.showMessageDialog(null,"Transaccion exitosa.");
-			
 		}
-
 	}
 	
 	public void windowClosing(WindowEvent we){
     	this.setVisible(false);
     }
-    
     public void windowOpened(WindowEvent we){}
     public void windowIconified(WindowEvent we){}    
     public void windowDeiconified(WindowEvent we){}    

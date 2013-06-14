@@ -13,20 +13,12 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
 	
 	CuentaBancaria cuenta;
 	AdministradorCuentas admCuentas;
-	
 	Boolean enEdicion;
-	
-	//textfields
 	TextField txtNumeroCuenta, txtNombrePropietario, txtSaldoActual, txtPlazo, txtCheques, txtTipoDeCuenta;
-	//Labels
 	Label lblNumeroCuenta, lblNombrePropietario, lblSaldoActual, lblPlazo, lblCheques, lblTipoDeCuenta;
-	
 	JButton	btnModificar, btnEliminar, btnRetirar, btnDepositar, btnCancelar;
-	
 	JPanel pnlCuenta;
-	
-	Retiros frmretiro; 
-	
+	Retiros frmretiro;
 	Depositos frmdeposito;                                                                    
 	
     public CuentaFrame(CuentaBancaria c, AdministradorCuentas admCuentas) {
@@ -54,19 +46,16 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
     	btnEliminar.addActionListener(this);
     	btnRetirar.addActionListener(this);
     	btnDepositar.addActionListener(this);
-    	
     	lblNumeroCuenta = new Label("Numero de cuenta: ");
     	lblNombrePropietario = new Label("Nombre del propietario: ");
     	lblSaldoActual = new Label("Saldo actual: ");
     	lblPlazo= new Label("Plazo: ");
     	lblCheques = new Label("Cheques: ");
-    	
     	txtNumeroCuenta = new TextField();
     	txtNombrePropietario =  new TextField();
     	txtSaldoActual =  new TextField();
     	txtPlazo =  new TextField();
     	txtCheques =  new TextField();
-    	
     	pnlCuenta.add(lblNumeroCuenta);
     	pnlCuenta.add(txtNumeroCuenta);
     	pnlCuenta.add(lblNombrePropietario);
@@ -97,11 +86,9 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
     	txtSaldoActual.setText(""+cuenta.regrearSaldoActual());
     	if(cuenta instanceof CuentaDeCheques){
     		txtCheques.setText(""+((CuentaDeCheques)cuenta).regresarNumCheques());    		
-    	}
-    	else{
+    	}else{
     		txtPlazo.setText(""+((CuentaDeInversion)cuenta).regresarPlazo());
     	}
-    	
     }
     
   	void modificarCuenta(){
@@ -126,7 +113,6 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
   			enEdicion =true;
   			btnEliminar.setLabel("Cancelar");
   		}
-  		
   	}
   	
   	void cancelar(){
@@ -152,8 +138,6 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
     		{
     			JOptionPane.showMessageDialog(this,"Error: "+ex.getMessage())	;
     		}
-    		
-    		
     	}
     }
     
@@ -189,7 +173,6 @@ public class CuentaFrame extends JFrame implements WindowListener, ActionListene
     		case "Cancelar": 
     			cancelar();
     			break;
-    		
     	}
     }
     
